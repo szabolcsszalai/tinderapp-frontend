@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Date and Product</title>
+</head>
+<body>
+    <h1>Select a Date and an Product</h1>
+    <p>Current date: {{ current_date }}</p>
+    <form action="{{ url_for('submit') }}" method="post">
+        <label for="selected_date">Select Date:</label>
+        <input type="date" id="selected_date" name="selected_date" required>
+        <br><br>
+        <label for="selected_option">Select Product:</label>
+        <select id="selected_option" name="selected_option" required>
+            {% for option in dropdown_options %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
